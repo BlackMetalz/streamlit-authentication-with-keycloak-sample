@@ -1,0 +1,8 @@
+# Local Installation
+
+Tested with Python 3.12
+```bash
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update 
+sudo apt install python3.12 python3.12-venv python3.12-dev -y
+```
