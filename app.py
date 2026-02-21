@@ -46,10 +46,14 @@ def main():
         st.rerun()
         return
 
-    # Not authenticated — show login button
-    st.title("📊 Dashboard Sample")
-    st.info("Please login to access the dashboard.")
-    st.link_button("🔑 Login with Keycloak", get_login_url(), width="stretch")
+    # Not authenticated — auto-redirect to Keycloak
+    # Since Keycloak SSO session is still alive, user will be bounced back automatically
+    login_url = get_login_url()
+    st.markdown(
+        f'<meta http-equiv="refresh" content="0;URL=\'{login_url}\'" />',
+        unsafe_allow_html=True,
+    )
+    st.info("⏳ Redirecting to Keycloak...")
 
 
 if __name__ == "__main__":
